@@ -24,5 +24,7 @@ Route::post('/confirm-auth/{email}', [AuthController::class, 'confirmEmail']);
 
 Route::middleware('auth:api')->group(function() {
 
-    Route::get('user/{userId}/detail', [\App\Http\Controllers\UserController::class, 'show']);
+    Route::get('user/{id}/profile', [\App\Http\Controllers\UserController::class, 'show']);
 });
+
+Route::post('re-verify', [AuthController::class, 'reVerifyEmail']);
